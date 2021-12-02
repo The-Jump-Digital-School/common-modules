@@ -1,0 +1,143 @@
+/* Base/Mobile Styles */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --item-height: 42px;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+
+  height: 100vh;
+
+  counter-reset: menu-item-counter;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  background: rgba(217, 93, 75, 0.8);
+  padding: 30px;
+}
+
+header h1 {
+  margin-right: 50px;
+}
+
+header label {
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+header label i line {
+  stroke: black;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+header label:hover {
+  filter: invert(1);
+}
+
+main {
+  padding: 30px;
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+nav {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition: height 500ms ease 0s;
+}
+
+nav ul {
+  display: block;
+  padding: 0;
+  margin: 20px 0;
+  list-style: none;
+}
+
+nav ul li {
+  counter-increment: menu-item-counter;
+  background-color: orange;
+  padding: 0.5em;
+  height: var(--item-height);
+}
+
+/* nav ul li::before {
+  content: "#" counter(menu-item-counter);
+} */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header input[type="checkbox"]:checked + nav {
+  height: 312px; /* TODO: animation without JavaScript */
+}
+
+section > article {
+  display: none;
+}
+
+section > input[type="radio"]:checked + article {
+  display: block;
+}
+
+footer {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0 1em;
+}
+
+footer menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+footer menu label {
+  cursor: pointer;
+  padding: 20px;
+  width: 33%;
+  text-align: center;
+}
+
+footer menu label:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.36),
+    rgba(0, 0, 0, 0.16)
+  );
+}
+
+footer menu i {
+  font-size: 3em;
+  font-style: normal;
+}

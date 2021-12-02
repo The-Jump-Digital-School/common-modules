@@ -1,0 +1,27 @@
+header {
+  display: flex;
+}
+
+nav {
+  height: auto;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: grid;
+  gap: 20px;
+}
+
+nav ul.main-nav {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+nav ul.secondary-nav {
+  grid-template-columns: 1fr 1fr;
+}
+
+header label {
+  display: none;
+}
