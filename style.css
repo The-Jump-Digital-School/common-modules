@@ -18,6 +18,7 @@ body {
   flex-flow: column nowrap;
 
   height: 100vh;
+  font-family: Ubuntu, Trebuchet, sans-serif;
 
   counter-reset: menu-item-counter;
   margin: 0;
@@ -25,9 +26,14 @@ body {
 }
 
 header {
+  position: relative;
   width: 100%;
   background: rgba(217, 93, 75, 0.8);
   padding: 30px;
+
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.6);
+
+  z-index: 10;
 }
 
 header h1 {
@@ -52,7 +58,7 @@ header label:hover {
 }
 
 main {
-  padding: 30px;
+  /* padding: 30px; */
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -69,9 +75,9 @@ h6 {
 
 nav {
   display: block;
-  height: 0;
+  max-height: 0;
   overflow: hidden;
-  transition: height 500ms ease 0s;
+  transition: max-height 500ms ease 0s;
 }
 
 nav ul {
@@ -98,7 +104,7 @@ nav ul li {
 }
 
 header input[type="checkbox"]:checked + nav {
-  height: 312px; /* TODO: animation without JavaScript */
+  max-height: 500px; /* TODO: animation without JavaScript */
 }
 
 section > article {
@@ -107,6 +113,133 @@ section > article {
 
 section > input[type="radio"]:checked + article {
   display: block;
+}
+
+.header-box {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  padding: 30px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0) 50%
+  );
+  height: 50vw;
+  max-height: 70vh;
+}
+
+.header-box h1 {
+  font-size: 2.75em;
+  margin-bottom: 20px;
+}
+
+.header-box h1,
+.header-box h2 {
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.header-box h2 {
+  font-weight: normal;
+}
+
+.header-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+.header-box-b {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.header-box-b hgroup {
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.header-box-b h1 {
+  font-size: 32px;
+}
+
+.header-box-b img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+hr {
+  margin: 60px 0;
+}
+
+ul.gallery {
+  /* display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, 200px); */
+
+  list-style: none;
+
+  margin: 0 auto;
+  padding: 0;
+}
+
+ul.gallery img {
+  max-width: 100%;
+}
+
+figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+figcaption {
+  position: absolute;
+  bottom: -50px;
+  right: 0;
+  color: white;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  transition: bottom 0.5s ease-in 0s;
+  z-index: 20;
+}
+
+figure:hover figcaption {
+  bottom: 0;
+}
+
+ul.gallery.slideshow {
+  position: relative;
+  width: 100%; /* <-- therein lies the rub */
+  display: block;
+  overflow: hidden;
+  height: 600px;
+}
+
+ul.gallery.slideshow li {
+  position: absolute; /* <-- absolute elements give no height or width to parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+ul.gallery.slideshow img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-ui {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  margin: 0 auto 30px;
 }
 
 footer {
